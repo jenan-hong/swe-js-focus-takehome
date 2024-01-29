@@ -9,9 +9,7 @@ declare global {
 }
 
 Cypress.Commands.add("getByTestId", (...testids) => {
-  const selector = testids
-    .map((testid) => `[data-testid="${testid}"]`)
-    .join(" ");
+  const selector = testids.map((testid) => testid).join(" ");
 
-  return cy.get(selector);
+  return cy.get(`[data-testid="${selector}"]`);
 });
