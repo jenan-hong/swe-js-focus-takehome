@@ -101,16 +101,24 @@ export class OASClientFromSpec {
             ])
           ),
         ]),
-        b.variableDeclaration("const", [
-          b.variableDeclarator(
-            b.identifier("result"),
-            b.callExpression(b.identifier("produce"), [
-              b.identifier("faked"),
-              b.identifier("producer"),
-            ])
-          ),
-        ]),
-        b.returnStatement(b.identifier("result")),
+        b.ifStatement(
+          b.binaryExpression("!==", b.identifier("producer"), b.identifier("undefined")),
+          b.blockStatement([
+            b.variableDeclaration("const", [
+              b.variableDeclarator(
+                b.identifier("result"),
+                b.callExpression(b.identifier("produce"), [
+                  b.identifier("faked"),
+                  b.identifier("producer"),
+                ])
+              ),
+            ]),
+            b.returnStatement(b.identifier("result")),
+          ]),
+          b.blockStatement([
+            b.returnStatement(b.identifier("faked")),
+          ])
+        ),
       ])
     );
   }
