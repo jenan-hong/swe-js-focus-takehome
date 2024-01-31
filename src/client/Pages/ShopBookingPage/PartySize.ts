@@ -35,14 +35,28 @@ export class PartySize {
   }
 
   getIsGroupOrder = (): boolean => {
-    return this.menu[0]?.isGroupOrder;
+    return this.menu.some((item: MenuItem) => {
+      return item.isGroupOrder;
+    });
   }
 
-  getMinOrderQty(): number {
-    return this.menu[0]?.minOrderQty ?? this.minPeople;
+  getMinOrderQty = (): number => {
+    let minOrderQty = Infinity;
+    this.menu.forEach((item: MenuItem) => {
+      if (item.minOrderQty && item.minOrderQty < minOrderQty) {
+        minOrderQty = item.minOrderQty;
+      }
+    });
+    return minOrderQty !== Infinity ? Math.floor(minOrderQty) : this.minPeople;
   }
 
-  getMaxOrderQty(): number {
-    return this.menu[0]?.maxOrderQty ?? this.maxPeople;
+  getMaxOrderQty = (): number => {
+    let maxOrderQty = 0;
+    this.menu.forEach((item: MenuItem) => {
+      if (item.maxOrderQty && item.maxOrderQty > maxOrderQty) {
+        maxOrderQty = item.maxOrderQty;
+      }
+    });
+    return maxOrderQty !== 0 ? Math.floor(maxOrderQty) : this.maxPeople;
   }
 }
