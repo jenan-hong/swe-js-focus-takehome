@@ -47,5 +47,5 @@ Refactored the `OasClientFromSpec` class to make the `producer` callback argumen
 ### Fix bugs and issues
 
 **Pull Request:**
-[Refactor PartySize class to handle multiple menu items](https://github.com/jenan-hong/swe-js-focus-takehome/pull/7)
-[Add teardown API call to avoid using cached mock data](https://github.com/jenan-hong/swe-js-focus-takehome/pull/8)
+- [Refactor PartySize class to handle multiple menu items](https://github.com/jenan-hong/swe-js-focus-takehome/pull/7)
+- [Add teardown API call to avoid using cached mock data](https://github.com/jenan-hong/swe-js-focus-takehome/pull/8)
