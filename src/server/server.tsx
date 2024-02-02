@@ -56,6 +56,7 @@ class Server {
       const { data: menu } = await this.instance.get<MenuItem[]>(
         `/shops/${req.params.shop}/menu`
       );
+      await this.instance.get(`teardown`);
       shop.slug = req.params.shop;
       const store = {
         shop,
