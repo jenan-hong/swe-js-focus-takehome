@@ -33,15 +33,15 @@ Refactored the `OasClientFromSpec` class to make the `producer` callback argumen
 ## Challenges and Issues
 
 ### Encountered Issues
-1. [Potential syntax error in e2e.spec.ts.](https://github.com/jenan-hong/swe-js-focus-takehome/issues/5)
+1. ~[Potential syntax error in e2e.spec.ts.](https://github.com/jenan-hong/swe-js-focus-takehome/issues/5)~
 2. ~[Using Cypress to test server side rendering component does not work as expected.](https://github.com/jenan-hong/swe-js-focus-takehome/issues/6)~
 
 **Description:**
-- Issue with the syntax in `e2e.spec.ts` potentially impacting test reliability.
+- ~Issue with the syntax in `e2e.spec.ts` potentially impacting test reliability.~
 - ~Difficulties in using Cypress for testing server-side rendered components, leading to inconsistent test behavior.~
 
 ### Remaining Work and Recommendations
-- **Syntax Error in e2e.spec.ts:** Further investigation and discussion could clarify this issue.
+- ~**Syntax Error in e2e.spec.ts:** Further investigation and discussion could clarify this issue.~
 - ~**Cypress Testing with SSR:** Research into alternative methods to find out a better solution.~
 
 ### Fix bugs and issues
@@ -49,3 +49,4 @@ Refactored the `OasClientFromSpec` class to make the `producer` callback argumen
 **Pull Request:**
 - [Refactor PartySize class to handle multiple menu items](https://github.com/jenan-hong/swe-js-focus-takehome/pull/7)
 - [Add teardown API call to avoid using cached mock data](https://github.com/jenan-hong/swe-js-focus-takehome/pull/8)
+- [Fix e2e test fail by openapi spec and party size counter component](https://github.com/jenan-hong/swe-js-focus-takehome/pull/9)
