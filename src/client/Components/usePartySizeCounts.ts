@@ -1,11 +1,16 @@
 import { useState } from "react";
+import { PartySize } from "../Pages/ShopBookingPage/PartySize";
 
-const usePartySizeCounts = () => {
+const usePartySizeCounts = (partySize: PartySize) => {
+  const initialCount = (): number => {
+    return partySize.getIsGroupOrder() ? partySize.getMinOrderQty() : partySize.getMinNumPeople();
+  };
+
   const [partyCounts, setPartyCounts] = useState({
     Children: 0,
     Babies: 0,
     Seniors: 0,
-    Adults: 0,
+    Adults: initialCount(),
   });
 
   const handleCountChange = (id: string, count: number) => {

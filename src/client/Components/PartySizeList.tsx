@@ -22,7 +22,7 @@ export const PartySizeList = ({ partySize }: Props): JSX.Element => {
     partyCounts,
     handleCountChange,
     handleButtonClick,
-  } = usePartySizeCounts();
+  } = usePartySizeCounts(partySize);
 
   const overallCount = Object.values(partyCounts).reduce((acc, count) => acc + count, 0);
 
