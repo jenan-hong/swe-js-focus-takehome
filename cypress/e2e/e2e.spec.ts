@@ -12,7 +12,6 @@ const ids = {
   COUNTER: {
     ADD: "Counter Add Button",
     SUBTRACT: "Counter Subtract Button",
-    SELECT: "Counter Select",
   },
 };
 
@@ -40,10 +39,6 @@ describe("reservation: party size", () => {
     cy.visit("/test/book");
 
     cy.getByTestId(ids.CTA).click();
-
-    [ids.CHILDREN, ids.BABIES, ids.SENIORS].forEach((testid) => {
-      cy.get(`[data-testid="${testid}"] select`).should("have.value", "0");
-    });
 
     [ids.ADULTS, ids.CHILDREN, ids.BABIES, ids.SENIORS].forEach((testid) => {
       cy.getByTestId(testid, ids.COUNTER.SUBTRACT).should("be.disabled");
