@@ -38,7 +38,7 @@ export const PartySizeCounter = ({
       </select>
       <button
         data-testid={`Party Size List ${id} Counter Counter Subtract Button`}
-        disabled={count <= 0}
+        disabled={count <= 0 || isButtonDisabled(-1)}
         onClick={() => onButtonClick(id, -1)}
       >
         -

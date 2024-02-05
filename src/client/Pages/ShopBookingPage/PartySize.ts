@@ -43,7 +43,7 @@ export class PartySize {
   getMinOrderQty = (): number => {
     let minOrderQty = Infinity;
     this.menu.forEach((item: MenuItem) => {
-      if (item.minOrderQty && item.minOrderQty < minOrderQty) {
+      if (item.minOrderQty && item.minOrderQty < minOrderQty && item.minOrderQty >= this.minPeople) {
         minOrderQty = item.minOrderQty;
       }
     });
@@ -53,10 +53,10 @@ export class PartySize {
   getMaxOrderQty = (): number => {
     let maxOrderQty = 0;
     this.menu.forEach((item: MenuItem) => {
-      if (item.maxOrderQty && item.maxOrderQty > maxOrderQty) {
+      if (item.maxOrderQty && item.maxOrderQty > maxOrderQty && item.maxOrderQty <= this.maxPeople) {
         maxOrderQty = item.maxOrderQty;
       }
     });
-    return maxOrderQty !== 0 ? Math.floor(maxOrderQty) : this.maxPeople;
+    return maxOrderQty !== 0  ? Math.floor(maxOrderQty) : this.maxPeople;
   }
 }
