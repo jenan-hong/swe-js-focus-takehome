@@ -23,10 +23,10 @@ export const PartySizeCounter = ({
   };
 
   return (
-    <div>
+    <div data-testid={`Party Size List ${id} Counter`}>
       <span>{id}</span>
       <select
-        data-testid={`Party Size List ${id} Counter`}
+        data-testid={`Counter Select`}
         value={count}
         onChange={handleCountChange}
       >
@@ -37,14 +37,14 @@ export const PartySizeCounter = ({
         ))}
       </select>
       <button
-        data-testid={`Party Size List ${id} Counter Counter Subtract Button`}
+        data-testid={`Counter Subtract Button`}
         disabled={count <= 0 || isButtonDisabled(-1)}
         onClick={() => onButtonClick(id, -1)}
       >
         -
       </button>
       <button
-        data-testid={`Party Size List ${id} Counter Counter Add Button`}
+        data-testid={`Counter Add Button`}
         disabled={isButtonDisabled(1)}
         onClick={() => onButtonClick(id, 1)}
       >
