@@ -91,7 +91,12 @@ export class OASClientFromSpec {
   buildClientMethodDefinition(schema: PropertyKind[]): FunctionExpressionKind {
     return b.functionExpression(
       null,
-      [b.identifier("producer")],
+      [
+        b.assignmentPattern(
+          b.identifier("producer"),
+          b.identifier("undefined")
+        ),
+      ],
       b.blockStatement([
         b.variableDeclaration("const", [
           b.variableDeclarator(
@@ -102,7 +107,11 @@ export class OASClientFromSpec {
           ),
         ]),
         b.ifStatement(
-          b.binaryExpression("!==", b.identifier("producer"), b.identifier("undefined")),
+          b.binaryExpression(
+            "===",
+            b.unaryExpression("typeof", b.identifier("producer")),
+            b.literal("function")
+          ),
           b.blockStatement([
             b.variableDeclaration("const", [
               b.variableDeclarator(
@@ -115,9 +124,7 @@ export class OASClientFromSpec {
             ]),
             b.returnStatement(b.identifier("result")),
           ]),
-          b.blockStatement([
-            b.returnStatement(b.identifier("faked")),
-          ])
+          b.blockStatement([b.returnStatement(b.identifier("faked"))])
         ),
       ])
     );
