@@ -51,3 +51,4 @@ Refactored the `OasClientFromSpec` class to make the `producer` callback argumen
 - [Add teardown API call to avoid using cached mock data](https://github.com/jenan-hong/swe-js-focus-takehome/pull/8)
 - [Fix e2e test fail by openapi spec and party size counter component](https://github.com/jenan-hong/swe-js-focus-takehome/pull/9)
 - [Use alternative approach to secure Cypress e2e reliability](https://github.com/jenan-hong/swe-js-focus-takehome/pull/10)
+- [Refactor OASClientFromSpec to accept optional producer](https://github.com/jenan-hong/swe-js-focus-takehome/pull/11)
